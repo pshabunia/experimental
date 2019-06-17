@@ -1,3 +1,3 @@
-# Experimental Workspace
+# E X P E R I M E N T A L 
 
-Everything is possible.
+Experimental workspace. Everything is possible.
