@@ -1,13 +1,20 @@
-import sys
 import RPi.GPIO as GPIO
 
-GPIO.setmode(GPIO.BCM)
+class Laser:
+    def __init__(self, pin=4):
+        self.pin = pin
+        GPIO.setmode(GPIO.BCM)
+        print("Opening GPIO output on pin ", pin)
+        GPIO.setup(self.pin, GPIO.OUT)
+    
+    def on(self):
+        print("Laser: turn ON")
+        GPIO.output(self.pin, 1)
+            
+    def off(self):
+        print("Laser: turn OFF")
+        GPIO.output(self.pin, 0)
 
-if len(sys.argv) == 1:
-    PINS = [4]
-else:
-    PINS = [int(pin) for pin in sys.argv[1:]]
-
-for pin in PINS:
-    GPIO.setup(pin, GPIO.OUT)
-    GPIO.output(pin, not GPIO.input(pin))
+    def cleanup(self):
+        print("Laser: cleanup GPIO")
+        GPIO.cleanup()
