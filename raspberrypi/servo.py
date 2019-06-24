@@ -1,10 +1,9 @@
 import time
-import random
 import pigpio
 
 
 class Servo:
-    def __init__(self, panpin=13, tiltpin=12):
+    def __init__(self, panpin=12, tiltpin=13):
         self.ppin = panpin
         self.tpin = tiltpin
         print("Servo: starting on pins [pan={}, tilt={}]"

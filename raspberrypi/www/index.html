@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>Cat Zone</title>
+		<meta name="viewport" content="width=device-width, minimum-scale=0.1">
+		<script>
+			function pointer_position(e) {
+  				var we = window.event;
+				var x = we.pageX - we.currentTarget.offsetLeft;
+				var y = we.pageY - we.currentTarget.offsetTop;
+				var xmlHttp = new XMLHttpRequest();
+				var async = true
+				xmlHttp.onreadystatechange = function() {}
+				xmlHttp.open("GET", "/position?x=" + x + "&y=" + y, async);
+				xmlHttp.send(null);
+			}
+		</script>
+		<style>
+			body {margin: 0px; background: #0e0e0e;}
+			img#main {-webkit-user-select: none;}	
+		</style>
+	</head>
+	<body>
+		<center>
+			<img id="main" src="http://70.93.147.234:1338/video" onclick="pointer_position(this);" />
+		</center>
+	</body>
+</html>

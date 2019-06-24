@@ -1,5 +1,6 @@
 import time
 import random
+import sys
 from laser import Laser
 from servo import Servo
 
@@ -16,3 +17,4 @@ class Pointer:
         print("Pointer: clean laser and servo")
         self.laser.cleanup()
         self.servo.cleanup()
+
