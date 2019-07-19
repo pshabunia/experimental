@@ -3,7 +3,7 @@ import pigpio
 
 
 class Servo:
-    def __init__(self, panpin=12, tiltpin=13):
+    def __init__(self, panpin=23, tiltpin=24):
         self.ppin = panpin
         self.tpin = tiltpin
         print("Servo: starting on pins [pan={}, tilt={}]"
