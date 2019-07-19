@@ -1,3 +1,4 @@
+import sys
 from pointer import Pointer
 
 pan = sys.argv[1] if len(sys.argv)>1 else 1600
