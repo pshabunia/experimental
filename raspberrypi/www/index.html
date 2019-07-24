@@ -1,7 +1,7 @@
 <html>
 	<head>
-		<title>Cat Zone</title>
-		<meta name="viewport" content="width=device-width, minimum-scale=0.1">
+		<title>Room Of Cats</title>
+		<meta name="viewport" content="width=device-width, minimum-scale=0.5">
 		<script>
 			function pointer_position(e) {
   				var we = window.event;
@@ -15,13 +15,24 @@
 			}
 		</script>
 		<style>
-			body {margin: 0px; background: #0e0e0e;}
-			img#main {-webkit-user-select: none;}	
+			html, body, table {
+			    height:100%;
+   				width: 100%;
+   				margin: 0;
+   				padding: 0;
+   				border: 0;
+			}
+			table td {
+   				vertical-align: middle;
+   				text-align: center;
+			}
+			body {background: #0e0e0e;}
+			img {-webkit-user-select: none;}	
 		</style>
 	</head>
 	<body>
-		<center>
-			<img id="main" src="http://70.93.147.234:1338/video" onclick="pointer_position(this);" />
-		</center>
-	</body>
-</html>
+		<table><tr><td>
+			<img src="http://70.93.147.234:1338/video" alt="video stream" onclick="pointer_position(this);" />
+		</td></tr></table>
+	</body>	
+< html>
