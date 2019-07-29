@@ -3,22 +3,24 @@ import time
 import pickle
 from collections import deque
 from pointer import Pointer
-from ipcamera import IpCamera
+from ipcamera2 import CCamera
 
-STEP = 5
-DELAY = 0.5
+STEP = 10
+DELAY = 0.1
 FILE = 'servo_map.data'
+RES = (736, 480)
 
 p = Pointer()
-c = IpCamera()
+c = CCamera(resolution=RES)
 q = deque()
 visited = set()
 datamap = {}
 
-pan = sys.argv[1] if len(sys.argv)>1 else 1600
-tilt = sys.argv[2] if len(sys.argv)>2 else 1800
+pan = sys.argv[1] if len(sys.argv)>1 else 1700
+tilt = sys.argv[2] if len(sys.argv)>2 else 1700
 p.position(pan, tilt)
-time.sleep(DELAY)
+
+time.sleep(3) # warmup
 if c.detect_pointer():
 	q.append((pan, tilt))
 else:
@@ -27,7 +29,7 @@ else:
 print("starting from {}".format((pan, tilt)))
 while q:
 	print("enqued: {}, visited: {}, collected: {}".format(len(q), len(visited), len(datamap)))
-	(pan, tilt) = q.popleft()
+	(pan, tilt) = q.pop()
 	if (pan, tilt) in visited:
 		continue
 
