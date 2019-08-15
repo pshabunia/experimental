@@ -63,12 +63,16 @@ class CCamera:
 			# centroid
 			c = max(cnts, key=cv2.contourArea)
 			((x, y), radius) = cv2.minEnclosingCircle(c)
+			print("[{}] detected pointer at {} with radius {}"
+				  .format(timer() - start, (x, y), radius))
 			M = cv2.moments(c)
 			if M["m00"] > 0:
 				center= (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
-				print("[{}] detected pointer at {} with radius {}"
-					.format(timer() - start, center, radius))
+				print("[{}] detected pointer at c1={} c2={} with radius {}"
+					.format(timer() - start, center, (x, y), radius))
 				return center
+			else:
+				print("center={} radius={}".format((x,y), radius))
 		print("[{}] no pointer detected".format(timer() - start))
 
 	def cleanup(self):
