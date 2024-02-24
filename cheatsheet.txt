@@ -1,0 +1,1 @@
+exiftool -r '-FileName<CreationDate' -d %Y%m%d_%H%M%S%%-c.%%e video1
